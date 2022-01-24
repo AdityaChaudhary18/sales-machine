@@ -7,6 +7,11 @@ import cloud from "../images/cloud.png";
 import link from "../images/link.png";
 import language from "../images/language.png";
 import web from "../images/web.png";
+import video from "../images/video.png";
+import mailBlue from "../images/mailBlue.png";
+import chat from "../images/chat.png";
+import callWhite from "../images/callWhite.png";
+import calender from "../images/calender.png";
 
 import Image from "next/image";
 const Taskbar = () => {
@@ -37,14 +42,14 @@ const Taskbar = () => {
         <hr className={styles.solid}></hr>
       </div>
       <section className={styles.topicList}>
-        <h3>Topics</h3>
+        <h5>Topics</h5>
         <div className={styles.topics}>
           <button>Some Topic</button>
           <button>Some Topic Name</button>
         </div>
       </section>
       <section className={styles.contactList}>
-        <h3>Contacts</h3>
+        <h5>Contacts</h5>
         <div className={styles.contact}>
           <Image src={mail} alt="mail" />
           <p>j.najnudel@ringover.com</p>
@@ -59,7 +64,7 @@ const Taskbar = () => {
         </div>
       </section>
       <section className={styles.additionalList}>
-        <h3>Additional</h3>
+        <h5>Additional</h5>
         <div className={styles.additionals}>
           <Image src={mail} alt="mail" />
           <p>president@ringover.com</p>
