@@ -1,4 +1,6 @@
+import styles from "../styles/Layout.module.scss";
+
 const ProfileHub = () => {
-  return <div></div>;
+  return <div className={styles.profileHub}>ProfileHub</div>;
 };
 export default ProfileHub;
