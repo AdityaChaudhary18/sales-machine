@@ -1,3 +1,5 @@
+@import "../Variables/Variables.scss";
+
 .home {
   min-height: 92vh;
   width: 100%;
@@ -24,6 +26,38 @@
     }
     a {
       margin: 0 10px;
+    }
+  }
+  .topicList {
+    .topics {
+      button {
+        margin: 0 5px;
+        color: $profileTextFontLightColor;
+        background-color: #fff;
+        border-radius: 3px;
+        border: 1px solid $profileTextFontLightColor;
+        font-family: $headingFont;
+      }
+    }
+  }
+  .contactList {
+    .contact {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+    p {
+      margin-left: 10px;
+    }
+  }
+  .additionalList {
+    .additionals {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+    p {
+      margin-left: 10px;
     }
   }
 }
