@@ -4,9 +4,9 @@ const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
   const [tabs, setTabs] = useState([]);
-  const [selectedTab, setSelectedtab] = useState(null);
+  const [selectedTab, setSelectedTab] = useState(0);
   return (
-    <AppContext.Provider value={{ tabs, setTabs, selectedTab, setSelectedtab }}>
+    <AppContext.Provider value={{ tabs, setTabs, selectedTab, setSelectedTab }}>
       {children}
     </AppContext.Provider>
   );

@@ -7,7 +7,7 @@ import Image from "next/image";
 import { useGlobalContext } from "../state/context";
 
 const Workspace = () => {
-  const { tabs, setTabs } = useGlobalContext();
+  const { tabs, setTabs, setSelectedTab, selectedTab } = useGlobalContext();
 
   return (
     <section className={styles.workshop}>
@@ -29,17 +29,25 @@ const Workspace = () => {
         <div className={styles.tabList}>
           {tabs.map((tab, index) => {
             return (
-              <div key={index} className={styles.tab}>
-                <p> {tab}</p>
-                <button
-                  onClick={() => {
-                    const newTabs = tabs.filter((tabName) => tabName !== tab);
-                    setTabs(newTabs);
-                  }}
-                >
-                  <Image src={close} alt="close" />
-                </button>
-              </div>
+              <button
+                key={index}
+                className={styles.tabButton}
+                onClick={() => {
+                  setSelectedTab(index);
+                }}
+              >
+                <div className={styles.tab}>
+                  <p> {tab}</p>
+                  <button
+                    onClick={() => {
+                      const newTabs = tabs.filter((tabName) => tabName !== tab);
+                      setTabs(newTabs);
+                    }}
+                  >
+                    <Image src={close} alt="close" />
+                  </button>
+                </div>
+              </button>
             );
           })}
         </div>

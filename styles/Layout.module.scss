@@ -194,7 +194,9 @@
     flex-direction: row;
     justify-content: space-evenly;
     margin-top: 25px;
-    .tab {
+    .tabButton {
+      background-color: #6f8c94;
+      border: 0;
       width: 23%;
       display: flex;
       flex-direction: row;
@@ -204,7 +206,13 @@
       color: #fff;
       padding: 7px;
       border-radius: 5px;
-
+    }
+    .tab {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
       button {
         border: 0;
         background-color: transparent;
