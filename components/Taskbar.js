@@ -15,7 +15,11 @@ import calender from "../images/calender.png";
 import edit from "../images/edit.png";
 import verified_user from "../images/verified_user.png";
 import Image from "next/image";
+import { useGlobalContext } from "../state/context";
+
 const Taskbar = () => {
+  const { tabs, setTabs, setSelectedTab } = useGlobalContext();
+
   return (
     <div className={styles.taskbar}>
       <div className={styles.userData}>
@@ -97,13 +101,48 @@ const Taskbar = () => {
             <Image src={callWhite} alt="phone" />
           </div>
           <div className={styles.actionIcons}>
-            <Image src={video} alt="phone" />
+            <button
+              onClick={() => {
+                if (tabs.includes("Video Call") === false) {
+                  setTabs([...tabs, "Video Call"]);
+                  setSelectedTab(0);
+                }
+              }}
+            >
+              <Image src={video} alt="phone" />
+            </button>
+            <button
+              onClick={() => {
+                if (tabs.includes("Schedule") === false) {
+                  setTabs([...tabs, "Schedule"]);
+                  setSelectedTab(1);
+                }
+              }}
+            >
+              <Image src={calender} alt="calender" />
+            </button>
 
-            <Image src={calender} alt="calender" />
+            <button
+              onClick={() => {
+                if (tabs.includes("Mail - Compose") === false) {
+                  setTabs([...tabs, "Mail - Compose"]);
+                  setSelectedTab(2);
+                }
+              }}
+            >
+              <Image src={mailBlue} alt="mailBlue" />
+            </button>
 
-            <Image src={mailBlue} alt="mailBlue" />
-
-            <Image src={chat} alt="chat" />
+            <button
+              onClick={() => {
+                if (tabs.includes("Chat") === false) {
+                  setTabs([...tabs, "Chat"]);
+                  setSelectedTab(3);
+                }
+              }}
+            >
+              <Image src={chat} alt="chat" />
+            </button>
           </div>
         </div>
       </section>

@@ -142,6 +142,10 @@
       a {
         margin: 0 18px 0 18px;
       }
+      button {
+        border: 0;
+        background-color: #fff;
+      }
     }
   }
 }
@@ -183,6 +187,32 @@
       padding-top: 5px;
       font-size: 0.9rem;
       text-align: center;
+    }
+  }
+  .tabList {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 25px;
+    .tab {
+      width: 23%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #6f8c94;
+      color: #fff;
+      padding: 7px;
+      border-radius: 5px;
+
+      button {
+        border: 0;
+        background-color: transparent;
+      }
+
+      p {
+        font-size: 0.8rem;
+      }
     }
   }
   @media only screen and (max-width: 900px) {

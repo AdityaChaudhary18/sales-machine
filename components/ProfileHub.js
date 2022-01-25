@@ -3,11 +3,8 @@ import upload from "../images/upload.png";
 import pause from "../images/pause.png";
 import stop from "../images/stop.png";
 import React, { useState } from "react";
-import { useGlobalContext } from "../state/context";
 import Image from "next/image";
 const ProfileHub = () => {
-  const items = useGlobalContext();
-
   const [selected, setSelected] = useState("Tasks");
   const [activeTab, setActiveTab] = useState({ 0: false, 1: true, 2: false });
   const changeHub = (selection) => {

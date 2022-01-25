@@ -1,18 +1,14 @@
 import React, { useState, useContext, useReducer, useEffect } from "react";
-import reducer from "./reducer";
 
 const AppContext = React.createContext();
 
-const initialState = {
-  selected: [],
-  active: "",
-};
-
 const AppProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
-
+  const [tabs, setTabs] = useState([]);
+  const [selectedTab, setSelectedtab] = useState(null);
   return (
-    <AppContext.Provider value={{ ...state }}>{children}</AppContext.Provider>
+    <AppContext.Provider value={{ tabs, setTabs, selectedTab, setSelectedtab }}>
+      {children}
+    </AppContext.Provider>
   );
 };
 
