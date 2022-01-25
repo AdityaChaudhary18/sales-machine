@@ -12,23 +12,33 @@ import mailBlue from "../images/mailBlue.png";
 import chat from "../images/chat.png";
 import callWhite from "../images/callWhite.png";
 import calender from "../images/calender.png";
-
+import edit from "../images/edit.png";
+import verified_user from "../images/verified_user.png";
 import Image from "next/image";
 const Taskbar = () => {
   return (
     <div className={styles.taskbar}>
       <div className={styles.userData}>
-        <h3>Jean-Samuel Najnudel</h3>
-        <p>President</p>
-        <p>
-          <b>
-            Ringover |
-            <span>
-              <Image src={people} alt="people" />
-            </span>
-            101-250
-          </b>
-        </p>
+        <div className={styles.heading}>
+          <h3>Jean-Samuel Najnudel</h3>
+          <Image src={edit} alt="edit" />
+          <Image src={verified_user} alt="verified_user" />
+        </div>
+
+        <p style={{ color: "#6F8C94" }}>President</p>
+        <div className={styles.subtitle}>
+          <p>
+            <b>Ringover</b>
+          </p>
+          <p>
+            <b>|</b>
+          </p>
+
+          <Image src={people} alt="people" />
+          <p>
+            <b>101-250</b>
+          </p>
+        </div>
         <a href="https://www.ringover.com/">https://www.ringover.com/</a>
         <hr className={styles.solid}></hr>
         <div className={styles.icons}>
@@ -57,6 +67,7 @@ const Taskbar = () => {
         <div className={styles.contact}>
           <Image src={phone} alt="phone" />
           <p>+33 07 55 35 23 21</p>
+          <p style={{ color: "red", fontSize: "0.7rem" }}>Primary</p>
         </div>
         <div className={styles.contact}>
           <Image src={phone} alt="phone" />
@@ -80,6 +91,20 @@ const Taskbar = () => {
         <div className={styles.additionals}>
           <Image src={web} alt="phone" />
           <p>Indian Standard (+5:30)</p>
+        </div>
+        <div className={styles.buttons}>
+          <div className={styles.callButton}>
+            <Image src={callWhite} alt="phone" />
+          </div>
+          <div className={styles.actionIcons}>
+            <Image src={video} alt="phone" />
+
+            <Image src={calender} alt="calender" />
+
+            <Image src={mailBlue} alt="mailBlue" />
+
+            <Image src={chat} alt="chat" />
+          </div>
         </div>
       </section>
     </div>
