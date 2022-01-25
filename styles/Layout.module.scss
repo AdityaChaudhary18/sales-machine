@@ -207,6 +207,18 @@
       padding: 7px;
       border-radius: 5px;
     }
+    .selectedTabButton {
+      border: 0;
+      width: 23%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #08464b;
+      color: #fff;
+      padding: 7px;
+      border-radius: 5px;
+    }
     .tab {
       display: flex;
       flex-direction: row;
@@ -225,6 +237,14 @@
   }
   @media only screen and (max-width: 900px) {
     width: 70%;
+  }
+  .workspaceMain {
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
   }
 }
 .profileHub {
