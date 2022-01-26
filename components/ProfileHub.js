@@ -4,7 +4,9 @@ import pause from "../images/pause.png";
 import stop from "../images/stop.png";
 import React, { useState } from "react";
 import Image from "next/image";
+import { useGlobalContext } from "../state/context";
 const ProfileHub = () => {
+  const { isSidebarOpen, setIsSidebarOpen } = useGlobalContext();
   const [selected, setSelected] = useState("Tasks");
   const [activeTab, setActiveTab] = useState({ 0: false, 1: true, 2: false });
   const changeHub = (selection) => {
@@ -20,50 +22,52 @@ const ProfileHub = () => {
     }
   };
   return (
-    <div className={styles.profileHub}>
-      <section className={styles.buttons}>
-        <button className={styles.iconButton}>
-          <div className={styles.buttonIcon}>
-            <Image src={upload} alt="upload" />
-            <p>Salesforce</p>
+    <div className={isSidebarOpen ? styles.sidebarOpen : undefined}>
+      <div className={styles.profileHub}>
+        <section className={styles.buttons}>
+          <button className={styles.iconButton}>
+            <div className={styles.buttonIcon}>
+              <Image src={upload} alt="upload" />
+              <p>Salesforce</p>
+            </div>
+          </button>
+          <div className={styles.pausePlay}>
+            <Image src={pause} alt="pause" />
+            <Image src={stop} alt="stop" />
           </div>
-        </button>
-        <div className={styles.pausePlay}>
-          <Image src={pause} alt="pause" />
-          <Image src={stop} alt="stop" />
-        </div>
-      </section>
-      <section className={styles.hub}>
-        <div className={styles.hubOptions}>
-          <button
-            onClick={() => changeHub("Activity")}
-            className={activeTab[0] ? styles.active : undefined}
-          >
-            Activity
-          </button>
-          <button
-            onClick={() => changeHub("Tasks")}
-            className={activeTab[1] ? styles.active : undefined}
-          >
-            Tasks
-          </button>
-          <button
-            onClick={() => changeHub("Progress")}
-            className={activeTab[2] ? styles.active : undefined}
-          >
-            Progress
-          </button>
-        </div>
-        <div className={styles.hubText}>
-          {selected === "Activity" ? (
-            <Activity />
-          ) : selected === "Tasks" ? (
-            <Tasks />
-          ) : (
-            <Progress />
-          )}
-        </div>
-      </section>
+        </section>
+        <section className={styles.hub}>
+          <div className={styles.hubOptions}>
+            <button
+              onClick={() => changeHub("Activity")}
+              className={activeTab[0] ? styles.active : undefined}
+            >
+              Activity
+            </button>
+            <button
+              onClick={() => changeHub("Tasks")}
+              className={activeTab[1] ? styles.active : undefined}
+            >
+              Tasks
+            </button>
+            <button
+              onClick={() => changeHub("Progress")}
+              className={activeTab[2] ? styles.active : undefined}
+            >
+              Progress
+            </button>
+          </div>
+          <div className={styles.hubText}>
+            {selected === "Activity" ? (
+              <Activity />
+            ) : selected === "Tasks" ? (
+              <Tasks />
+            ) : (
+              <Progress />
+            )}
+          </div>
+        </section>
+      </div>
     </div>
   );
 };

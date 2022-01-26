@@ -192,8 +192,9 @@
   .tabList {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    margin-top: 25px;
+    justify-content: flex-start;
+    margin: 25px 20px 0 20px;
+
     .tabButton {
       background-color: $tabUnselectedColor;
       border: 0;
@@ -206,6 +207,7 @@
       color: #fff;
       padding: 7px;
       border-radius: 5px;
+      margin: 0 5px;
     }
     .selectedTabButton {
       border: 0;
@@ -235,8 +237,19 @@
       }
     }
   }
+  @media only screen and (min-width: 900px) {
+    .sidebar {
+      display: none;
+    }
+  }
   @media only screen and (max-width: 900px) {
     width: 70%;
+    .iconsWork {
+      margin-right: 20px;
+    }
+    .sidebar {
+      display: block;
+    }
   }
   .workspaceMain {
     height: 500px;
@@ -247,6 +260,7 @@
     font-size: 3rem;
   }
 }
+
 .profileHub {
   width: 20%;
   height: 92vh;
@@ -331,8 +345,21 @@
       justify-content: center;
     }
   }
-
   @media only screen and (max-width: 900px) {
     display: none;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .sidebarOpen {
+    height: 100%;
+    width: 100vw;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
   }
 }

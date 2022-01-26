@@ -3,11 +3,30 @@ import noWork from "../images/noWork.png";
 import note from "../images/note.png";
 import record_voice_over from "../images/record_voice_over.png";
 import close from "../images/close.png";
+import sidebar from "../images/sidebar.jpg";
 import Image from "next/image";
 import { useGlobalContext } from "../state/context";
-
+import React, { useEffect } from "react";
 const Workspace = () => {
-  const { tabs, setTabs, setSelectedTab, selectedTab } = useGlobalContext();
+  const {
+    tabs,
+    setTabs,
+    setSelectedTab,
+    selectedTab,
+    isSidebarOpen,
+    setIsSidebarOpen,
+  } = useGlobalContext();
+
+  const tabData = {
+    Chat: 3,
+    Schedule: 1,
+    "Video Call": 0,
+    "Mail - Compose": 2,
+  };
+
+  useEffect(() => {
+    setSelectedTab(tabData[tabs[0]]);
+  }, [tabs]);
 
   return (
     <section className={styles.workshop}>
@@ -16,6 +35,16 @@ const Workspace = () => {
         <div className={styles.iconsWork}>
           <Image src={record_voice_over} alt="record_voice_over" />
           <Image src={note} alt="note" />
+        </div>
+        <div className={styles.sidebar}>
+          <button
+            style={{ border: "0", backgroundColor: "#fff" }}
+            onClick={() => {
+              setIsSidebarOpen(!isSidebarOpen);
+            }}
+          >
+            <Image src={sidebar} alt="sidebar" />
+          </button>
         </div>
       </div>
       {tabs.length === 0 && (
@@ -49,6 +78,9 @@ const Workspace = () => {
                           (tabName) => tabName !== tab
                         );
                         setTabs(newTabs);
+                        if (tabs.length !== 0) {
+                          setSelectedTab(`${tabData[tabs[0]]}`);
+                        }
                       }}
                     >
                       <Image src={close} alt="close" />
